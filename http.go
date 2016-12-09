@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 // AppTrans is abstact of Transaction handler. With AppTrans, we can get prepay id
@@ -170,7 +171,7 @@ func doHttpPost(targetUrl string, body []byte) ([]byte, error) {
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
 	}
-	client := &http.Client{Transport: tr}
+	client := &http.Client{Transport: tr, Timeout: 5 * time.Second}
 
 	resp, err := client.Do(req)
 	if err != nil {
