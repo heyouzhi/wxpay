@@ -137,7 +137,7 @@ func (this *AppTrans) NewPaymentRequest(prepayId string) PaymentRequest {
 func (this *AppTrans) newOrderRequest(orderId, amount, desc, clientIp string) map[string]string {
 	param := make(map[string]string)
 	param["appid"] = this.Config.AppId
-	param["attach"] = "透传字段" //optional
+	param["attach"] = this.Config.Attach
 	param["body"] = desc
 	param["mch_id"] = this.Config.MchId
 	param["nonce_str"] = NewNonceString()

@@ -8,4 +8,5 @@ type WxConfig struct {
 	PlaceOrderUrl string
 	QueryOrderUrl string
 	TradeType     string
+	Attach        string
 }
